@@ -51,13 +51,13 @@ public class IPAddress {
         in their binary representation", this function compares the leading bits of the two IP addresses
         depending on the blockSize
      */
-    public boolean isInBlock(IPAddress ipaddress, int blockSize){
+    public String isInBlock(IPAddress ipaddress, int blockSize){
         String commonBitsIP1 = longBinaryString.substring(0,blockSize);
         String commonBitsIP2 = ipaddress.longBinaryString.substring(0,blockSize);
         if(commonBitsIP1.equals(commonBitsIP2)){
-            return true;
+            return "in block";
         }else{
-            return false;
+            return "not in block";
         }
     }
 
