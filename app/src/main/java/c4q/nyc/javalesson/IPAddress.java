@@ -1,5 +1,4 @@
 package c4q.nyc.javalesson;
-
 import java.util.regex.Pattern;
 
 /**
@@ -74,13 +73,12 @@ public class IPAddress {
         for(int i=0;i<32-blockSize;i++){
             paddingString+="0";
         }
-        System.out.println(paddingString);
+        //System.out.println(paddingString);
         for(int i=0;i<Math.pow(2,32-blockSize);i++){
             String binary = Integer.toBinaryString(i);
             binary = (paddingString+binary).substring(binary.length());
             String appendedIP = Mask+binary;
             System.out.println(longBinaryStringToIP(appendedIP));
-            //System.out.println(appendedIP);
         }
     }
 
@@ -98,8 +96,8 @@ public class IPAddress {
             ipParts[i]=ipAddressString.substring(8*i,8*i+8);
             ipPartsInt[i]=Integer.parseInt(ipParts[i],2);
             ip+=ipPartsInt[i]+".";
-            ip=ip.substring(0,ip.length()-1);
         }
+        ip=ip.substring(0,ip.length()-1);
         return ip;
     }
 }
